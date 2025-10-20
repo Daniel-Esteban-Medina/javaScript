@@ -1,4 +1,4 @@
-// 1_2. Creamos un programa que pida números hasta que insertemos un 0, enconces nos indica la longitud del array
+// 1_2_3. Creamos un programa que pida números hasta que insertemos un 0, enconces nos indica la longitud del array
 let array = [];
 let respuesta;
 while(respuesta != 0){
@@ -25,6 +25,5 @@ if(cinco){
 
 //3.Pedir un número al usuario e indicar cuántas veces aparece en el array anterior.
 respuesta = Number(prompt("Inserte número"));
-
-
-alert("El número "+respuesta);
+let cantidad = array.filter(e => e == respuesta).length;
+alert("El número "+respuesta+" se repite "+cantidad);
