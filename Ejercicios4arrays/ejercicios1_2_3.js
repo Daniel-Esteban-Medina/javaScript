@@ -8,7 +8,7 @@ while(respuesta != 0){
     }
 }
 alert("Longitud del array: "+array.length);
-
+   
 //busca 5 como caracter aislado
 // array.includes() verificar si un array contiene un elemento específico. Devuelve true o false.
 alert("Hay algún 5 como caracter aislado en array: " + (array.includes(5) ? " sí, hay algún 5 en el array." : " no, no hay ningun 5 en el array."));
