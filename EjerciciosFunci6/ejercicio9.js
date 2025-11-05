@@ -1,0 +1,1 @@
+// 9.Función que reciba un array de palabras y devuelva solo las que son palíndromos.
