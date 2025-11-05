@@ -1,0 +1,1 @@
+// 8.Función que sume todos los elementos introducidos como parámetros, sin preestablecer el número de parámetros.
