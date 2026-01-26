@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Juego de rol</title>
+        <title>Inicio</title>
         <link rel="stylesheet" href="css/principales.css">
     </head>
     <body>
@@ -10,12 +10,15 @@
             <div id="salud">Salud: 100</div>
             <div id="dinero">dinero: 50</div>
         </div>
-        <div id="cuadroTexto"></div>
-        <div id="botones">
-            <button>Botón 1</button>
-            <button>Botón 2</button>
-            <button>Botón 3</button>
+        <div id="cuadroTexto">
+            Bienvenido al Inicio. Debes derrotar al dragón.
+            ¿A dónde quieres ir? Usa los botones de abajo.
         </div>
-        <script src="#"></script>
+        <div id="botones">
+            <button id="botTienda">Ir a la tienda</button>
+            <button id="botEntrenar">Entrenar</button>
+            <button id="botDragon">Luchar con dragón</button>
+        </div>
+        <script src="js/direcciones.js"></script>
     </body>
 </html>
