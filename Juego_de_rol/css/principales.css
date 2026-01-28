@@ -20,3 +20,6 @@ button{
     display: flex;
     align-items: stretch;
 }
+#stats div{
+    border: solid rgb(102, 65, 65) 2.5px;
+}

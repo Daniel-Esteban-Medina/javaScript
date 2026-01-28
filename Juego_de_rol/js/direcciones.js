@@ -2,9 +2,11 @@ let aventurero = {
     xp: 0,
     salud: 100,
     dinero: 50,
-    atk: 6
+    atk: 5
 };
-localStorage.setItem("objAventur", aventurero);
+let dragon = 100;
+
+setAven(aventurero);
 
 const botTienda = document.getElementById("botTienda");
 if(botTienda != null){
@@ -32,4 +34,22 @@ if(botDragon != null){
 botDragon.addEventListener("click", function(){
     window.location.href = "./dragon.html";
 });
+}
+const botAtkDragon = document.getElementById("botAtkDragon");
+if(botAtkDragon != null){
+    botAtkDragon.addEventListener("click", function(){
+        let aven = getAven();
+        aven.salud -= 50;
+        setAven(aven);
+        console.log(aven.salud);
+    });
+}
+
+function getAven(){
+    let aven = JSON.parse(localStorage.getItem("objAventur"));
+    return aven;
+}
+
+function setAven(aventurero){
+    localStorage.setItem("objAventur", JSON.stringify(aventurero));
 }
