@@ -41,7 +41,7 @@ if(botAtkDragon != null){
         let aven = getAven();
         aven.salud -= 50;
         setAven(aven);
-        console.log(aven.salud);
+        dragon -= aven.atk;
     });
 }
 
@@ -52,4 +52,14 @@ function getAven(){
 
 function setAven(aventurero){
     localStorage.setItem("objAventur", JSON.stringify(aventurero));
+}
+
+function rellenarDatosAven(){
+    const xp = document.getElementById("xp");
+    const salud = document.getElementById("salud");
+    const dinero = document.getElementById("dinero");
+    let aven = getAven();
+    xp.textContent = "XP: "+aven.xp;
+    salud.textContent = "Salud: "+aven.salud;
+    dinero.textContent = "Dinero: "+aven.dinero;
 }
