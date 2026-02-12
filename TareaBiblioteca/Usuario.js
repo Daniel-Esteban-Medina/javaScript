@@ -5,10 +5,10 @@ export class Usuario{
         this.rol = rol;
         this.librosPrestados = librosPrestados;
     }
-    pedirLibro(){
-
+    pedirLibro(lib){
+        this.librosPrestados.push(lib);
     }
-    devolverLibro(){
-        
+    devolverLibro(tituloLibro){
+        this.librosPrestados  = this.librosPrestados.filter(lib => lib.titulo != tituloLibro); 
     }
 }

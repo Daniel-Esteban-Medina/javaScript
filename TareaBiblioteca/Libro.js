@@ -7,9 +7,9 @@ export class Libro{
         this.estaPrestado = estaPrestado;
     }
     marcarPrestado(){
-
+        this.estaPrestado = true;
     }
     marcarDevuelto(){
-        
+        this.estaPrestado = false;
     }
 }

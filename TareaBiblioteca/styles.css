@@ -1,0 +1,10 @@
+#TablaLibros{
+    border: solid black 1.5px;
+    background-color: rgb(198, 228, 255);
+    padding: 5px;
+    gap: 5px;
+}
+
+#TablaLibros th{
+    background-color: grey;
+}
