@@ -1,6 +1,6 @@
-import { Usuario } from "./Usuario.js"; 
-import { Libro } from "./Libro.js";
-import { Biblioteca } from "./Biblioteca.js";
+import { Usuario } from "./clases/Usuario.js"; 
+import { Libro } from "./clases/Libro.js";
+import { Biblioteca } from "./clases/Biblioteca.js";
 let l1 = new Libro("Perdido en Saturno", "Mendoza Escribano", 55, "Fantasia", true);
 let l2 = new Libro("500 recetas", "Juliana Medina", 37, "Cocina", true);
 let u1 = new Usuario("Paco", "7TR6", "Admin", [l1, l2]);
