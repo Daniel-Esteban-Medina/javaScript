@@ -1,4 +1,5 @@
 export class Usuario{
+
     constructor(nombre, password, rol, librosPrestados){
         this.nombre = nombre;
         this.password = password; 
@@ -10,5 +11,10 @@ export class Usuario{
     }
     devolverLibro(tituloLibro){
         this.librosPrestados  = this.librosPrestados.filter(lib => lib.titulo != tituloLibro); 
+    }
+
+    rellenarTabla(){
+        let tablaUsuarios = document.getElementById("tablaUsuarios");
+        
     }
 }
