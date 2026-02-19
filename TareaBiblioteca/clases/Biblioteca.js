@@ -28,4 +28,18 @@ export class Biblioteca{
                                     "</tr>";
         }
     }
+    printAllUsuarios(){
+        let tablaUsuarios = document.getElementById("tablaUsuarios");
+        tablaUsuarios.innerHTML = "<tr>"+
+                                    "<th>NOMBRE</th><th>CONTRASEÑA</th><th>ROL</th><th>NumLibros</th>"+
+                                "</tr>";
+        for(let i = 0; i < this.libros.length; i++){
+            tablaUsuarios.innerHTML += "<tr>"+
+                                        "<td>"+this.usuarios[i].nombre+
+                                        "</td><td>"+this.usuarios[i].password+
+                                        "</td><td>"+this.usuarios[i].rol+
+                                        "</td><td>"+this.usuarios[i].librosPrestados.length+"</td>"+
+                                    "</tr>";
+        }
+    }
 }

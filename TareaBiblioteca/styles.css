@@ -1,10 +1,13 @@
-#TablaLibros{
+table{
     border: solid black 1.5px;
-    background-color: rgb(198, 228, 255);
+    background-color: rgb(168, 215, 255);
     padding: 5px;
-    gap: 5px;
+    margin: 5px;
 }
 
-#TablaLibros th{
-    background-color: grey;
+table th{
+    background-color: rgb(69, 156, 255);
+}
+table td{
+    border: solid black 1.5px;
 }
