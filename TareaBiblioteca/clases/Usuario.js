@@ -8,7 +8,8 @@ export class Usuario{
         this.estaPenalizado = estaPenalizado;
     }
     pedirLibro(lib){
-        if(this.estaPenalizado == false && librosPrestados.legth <= 3){
+        merecePenalizacion();
+        if(this.estaPenalizado == false || librosPrestados.legth >= 3){
             this.librosPrestados.push(lib);
             return "Prestamo concedido.";
         } else {
@@ -19,10 +20,6 @@ export class Usuario{
         this.librosPrestados  = this.librosPrestados.filter(lib => lib.titulo != tituloLibro); 
     }
 
-    rellenarTabla(){
-        let tablaUsuarios = document.getElementById("tablaUsuarios");
-        
-    }
     merecePenalizacion(){
         librosPrestados.forEach(libro => {
             let diferenciaMs = (new Date()) - libro.fechaPrestamo;
