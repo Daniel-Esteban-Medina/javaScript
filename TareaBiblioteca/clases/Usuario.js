@@ -1,5 +1,8 @@
 export class Usuario{
 
+    static tiempoMaximo = 14;
+    static maxLibros = 3;
+
     constructor(nombre, password, rol, librosPrestados, estaPenalizado = false){
         this.nombre = nombre;
         this.password = password; 
@@ -9,7 +12,7 @@ export class Usuario{
     }
     pedirLibro(lib){
         merecePenalizacion();
-        if(this.estaPenalizado == false || librosPrestados.legth >= 3){
+        if(this.estaPenalizado == false || librosPrestados.legth >= maxLibros){
             this.librosPrestados.push(lib);
             return "Prestamo concedido.";
         } else {
@@ -24,7 +27,7 @@ export class Usuario{
         librosPrestados.forEach(libro => {
             let diferenciaMs = (new Date()) - libro.fechaPrestamo;
             const dias = Math.floor( diferenciaMs / (1000 * 60 * 60 * 24));
-            if(dias > 14){
+            if(dias > tiempoMaximo){
                 estaPenalizado = true;
             }
         });
