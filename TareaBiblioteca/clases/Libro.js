@@ -1,5 +1,6 @@
 export class Libro{
-    constructor(titulo, autor, numPaginas, genero, estaPrestado, fechaPrestamo = null){
+    static tiempoDevolucion = [];
+    constructor(titulo, autor, numPaginas, genero, estaPrestado = false, fechaPrestamo = null, contPrestamos = 0){
         this.titulo = titulo;
         this.autor = autor;
         this.numPaginas = numPaginas;
@@ -13,6 +14,11 @@ export class Libro{
     }
     marcarDevuelto(){
         this.estaPrestado = false;
-        this.echaPrestamo = null;
+
+        let diferenciaMs = (new Date()) - libro.fechaPrestamo;
+        const dias = Math.floor( diferenciaMs / (1000 * 60 * 60 * 24));
+        tiempoDevolucion.push(dias);
+
+        this.fechaPrestamo = null; 
     }
 }

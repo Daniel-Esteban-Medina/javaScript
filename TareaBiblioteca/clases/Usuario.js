@@ -3,7 +3,7 @@ export class Usuario{
     static tiempoMaximo = 14;
     static maxLibros = 3;
 
-    constructor(nombre, password, rol, librosPrestados, estaPenalizado = false){
+    constructor(nombre, password, rol, librosPrestados, estaPenalizado = false, numRetrasos = 0){
         this.nombre = nombre;
         this.password = password; 
         this.rol = rol;
@@ -31,5 +31,6 @@ export class Usuario{
                 estaPenalizado = true;
             }
         });
+        return this.estaPenalizado;
     }
 }

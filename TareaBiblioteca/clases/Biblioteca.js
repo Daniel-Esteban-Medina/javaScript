@@ -31,14 +31,15 @@ export class Biblioteca{
     printAllUsuarios(){
         let tablaUsuarios = document.getElementById("tablaUsuarios");
         tablaUsuarios.innerHTML = "<tr>"+
-                                    "<th>NOMBRE</th><th>CONTRASEÑA</th><th>ROL</th><th>NumLibros</th>"+
+                                    "<th>NOMBRE</th><th>CONTRASEÑA</th><th>ROL</th><th>NumLibros</th><th>estaPenalizado</th>"+
                                 "</tr>";
         for(let i = 0; i < this.libros.length; i++){
             tablaUsuarios.innerHTML += "<tr>"+
                                         "<td>"+this.usuarios[i].nombre+
                                         "</td><td>"+this.usuarios[i].password+
                                         "</td><td>"+this.usuarios[i].rol+
-                                        "</td><td>"+this.usuarios[i].librosPrestados.length+"</td>"+
+                                        "</td><td>"+this.usuarios[i].librosPrestados.length+
+                                        "</td><td>"+this.usuarios[i].merecePenalizacion()+"</td>"+
                                     "</tr>";
         }
     }

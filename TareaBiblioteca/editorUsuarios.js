@@ -11,7 +11,8 @@ console.log(l1);
 let b1 = new Biblioteca([l1, l2],[u1, u2]);
 //Datos de prueba FIN
 
-
+let maxLibros = document.getElementById("maxLibros");
+let tiempoMaximo = document.getElementById("tiempoMaximo");
 let addUser = document.getElementById("addUser");
 let deletUser = document.getElementById("deletUser");
 
@@ -23,3 +24,6 @@ deletUser.addEventListener("click", function(){
 });
 
 b1.printAllUsuarios();
+
+maxLibros.value = Usuario.maxLibros;
+tiempoMaximo.value = Usuario.tiempoMaximo;
