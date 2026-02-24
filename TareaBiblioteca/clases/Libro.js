@@ -7,8 +7,10 @@ export class Libro{
         this.genero = genero;
         this.estaPrestado = estaPrestado;
         this.fechaPrestamo = fechaPrestamo;
+        this.contPrestamos = contPrestamos;
     }
     marcarPrestado(){
+        this.contPrestamos ++;
         this.estaPrestado = true;
         this.fechaPrestamo = new Date();
     }

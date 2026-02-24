@@ -1,10 +1,10 @@
 export class Biblioteca{
-    constructor(libros, usuarios){
+    constructor(libros = [], usuarios = []){
         this.libros = libros;
         this.usuarios = usuarios;
     }
-    registrarUsuario(){
-
+    registrarUsuario(usr){
+        this.usuarios.push(usr)
     }
     agregarLibro(lib){
         this.libros.push(lib);
@@ -33,7 +33,7 @@ export class Biblioteca{
         tablaUsuarios.innerHTML = "<tr>"+
                                     "<th>NOMBRE</th><th>CONTRASEÑA</th><th>ROL</th><th>NumLibros</th><th>estaPenalizado</th>"+
                                 "</tr>";
-        for(let i = 0; i < this.libros.length; i++){
+        for(let i = 0; i < this.usuarios.length; i++){
             tablaUsuarios.innerHTML += "<tr>"+
                                         "<td>"+this.usuarios[i].nombre+
                                         "</td><td>"+this.usuarios[i].password+
@@ -42,5 +42,9 @@ export class Biblioteca{
                                         "</td><td>"+this.usuarios[i].merecePenalizacion()+"</td>"+
                                     "</tr>";
         }
+    }
+
+    TopLibrosPrestados(){
+        return this.libros.sort((a, b) => a.contPrestamos - b.contPrestamos);
     }
 }
