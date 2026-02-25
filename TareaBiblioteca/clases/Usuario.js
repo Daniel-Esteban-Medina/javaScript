@@ -21,7 +21,7 @@ export class Usuario{
             return "Prestamo denegado.";
         }
     }
-    devolverLibro(tituloLibro){
+    devolverLibro(tituloLibro){        
         this.librosPrestados  = this.librosPrestados.filter(lib => lib.titulo != tituloLibro); 
     }
 
