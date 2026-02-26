@@ -47,4 +47,7 @@ export class Biblioteca{
     TopLibrosPrestados(){
         return this.libros.sort((a, b) =>  b.contPrestamos - a.contPrestamos);
     }
+    TopUsuariosConRetrasos(){
+        return this.usuarios.sort((a, b) =>  b.numRetrasos - a.numRetrasos);
+    }
 }

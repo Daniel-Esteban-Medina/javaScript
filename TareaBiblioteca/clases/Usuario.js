@@ -21,18 +21,26 @@ export class Usuario{
             return "Prestamo denegado.";
         }
     }
-    devolverLibro(tituloLibro){        
+    devolverLibro(tituloLibro){   
+        const libro =  this.librosPrestados.find(lib => lib.titulo == tituloLibro); 
+        if(this.diasDesdePrestamo(libro) > Usuario.tiempoMaximo){
+            this.numRetrasos ++;
+        }   
+        libro.marcarDevuelto();
         this.librosPrestados  = this.librosPrestados.filter(lib => lib.titulo != tituloLibro); 
     }
 
     merecePenalizacion(){
-        this.librosPrestados.forEach(libro => {
-            let diferenciaMs = (new Date()) - libro.fechaPrestamo;
-            const dias = Math.floor( diferenciaMs / (1000 * 60 * 60 * 24));
-            if(dias > Usuario.tiempoMaximo){
+        this.librosPrestados.forEach(libro => {            
+            if(this.diasDesdePrestamo(libro) > Usuario.tiempoMaximo){
                 this.estaPenalizado = true;
             }
         });
         return this.estaPenalizado;
+    }
+
+    diasDesdePrestamo(libro){
+        let diferenciaMs = (new Date()) - libro.fechaPrestamo;
+        return Math.floor( diferenciaMs / (1000 * 60 * 60 * 24));
     }
 }

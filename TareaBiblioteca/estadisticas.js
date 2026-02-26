@@ -10,30 +10,53 @@ let l3 = new Libro("JS Avanzado", "Carlos", 200, "Tecnologia");
 let l4 = new Libro("Emprendimiento", "Ms.J", 123, "economia");
 let l5 = new Libro("Inversión cripto", "Hacker man", 50, "economia");
 
-let u1 = new Usuario("Paco", "123", "Admin");
+let u1 = new Usuario("Paco", "123", "admin");
 let u2 = new Usuario("Carmen", "456", "user");
+let u3 = new Usuario("David", "A45B", "user");
+let u4 = new Usuario("Manuel", "56YZ3", "admin");
 
 u1.pedirLibro(l1); u1.pedirLibro(l4);
-u1.pedirLibro(l1); u1.pedirLibro(l3);
+u4.pedirLibro(l1); u1.pedirLibro(l3);
 u2.pedirLibro(l2);
 u2.pedirLibro(l3); u2.pedirLibro(l4);
-u2.pedirLibro(l3);
+u3.pedirLibro(l3);
 
-let b1 = new Biblioteca([l1, l2, l3, l4, l5],[u1, u2]);
+u1.numRetrasos = 5;
+u2.numRetrasos = 2;
+u3.numRetrasos = 1;
+
+let b1 = new Biblioteca([l1, l2, l3, l4, l5],[u1, u2, u3, u4]);
 //Datos de prueba FIN
 
 let top5 = b1.TopLibrosPrestados().slice(0, 5);
 let titulosLibs = top5.map(libro => libro.titulo);
 let numPrestamos = top5.map(libro => libro.contPrestamos);
 
-let grafico = document.getElementById("grafico1");
-new Chart(grafico, {
+let grafico1 = document.getElementById("grafico1");
+new Chart(grafico1, {
     type: "bar",
     data: {
         labels: titulosLibs,
         datasets: [{
             label: "Libros más prestados",
             data: numPrestamos
+        }]
+    },
+});
+
+let top4 = b1.TopUsuariosConRetrasos().slice(0, 4);
+let nombresUsr = top4.map(usr => usr.nombre);
+let numsRetrasos = top4.map(usr => usr.numRetrasos);
+
+let grafico2 = document.getElementById("grafico2");
+new Chart(grafico2, {
+    type: "bar",
+    data: {
+        labels: nombresUsr,
+        datasets: [{
+            label: "Usuarios con más retrasos",
+            data: numsRetrasos,
+            backgroundColor: "rgba(255, 0, 0, 0.5)"
         }]
     },
 });
