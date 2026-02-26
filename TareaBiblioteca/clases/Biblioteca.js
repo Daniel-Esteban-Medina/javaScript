@@ -1,3 +1,5 @@
+import { Libro } from "./Libro";
+
 export class Biblioteca{
     constructor(libros = [], usuarios = []){
         this.libros = libros;
@@ -49,5 +51,13 @@ export class Biblioteca{
     }
     TopUsuariosConRetrasos(){
         return this.usuarios.sort((a, b) =>  b.numRetrasos - a.numRetrasos);
+    }
+    TiempoMedioDevolucion(){
+        let prestamosEnTotal = 0;
+        this.libros.forEach(libro => {
+            prestamosEnTotal += libro.contPrestamos;
+        });
+        let tiempos = Libro.tiempoDevolucion.reduce((acumulador, valorActual) => acumulador + valorActual);
+        return tiempos / prestamosEnTotal;
     }
 }

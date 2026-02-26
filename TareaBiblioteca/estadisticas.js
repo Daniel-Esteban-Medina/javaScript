@@ -21,9 +21,9 @@ u2.pedirLibro(l2);
 u2.pedirLibro(l3); u2.pedirLibro(l4);
 u3.pedirLibro(l3);
 
-u1.numRetrasos = 5;
-u2.numRetrasos = 2;
-u3.numRetrasos = 1;
+u1.numRetrasos = 5; u2.numRetrasos = 2; u3.numRetrasos = 1;
+
+l1.tiempoDevolucion.push(14); l2.tiempoDevolucion.push(3); l3.tiempoDevolucion.push(12); l4.tiempoDevolucion.push(5); l5.tiempoDevolucion.push(27); 
 
 let b1 = new Biblioteca([l1, l2, l3, l4, l5],[u1, u2, u3, u4]);
 //Datos de prueba FIN
@@ -59,4 +59,19 @@ new Chart(grafico2, {
             backgroundColor: "rgba(255, 0, 0, 0.5)"
         }]
     },
+});
+
+//let tiempoDevolucion = b1.TiempoMedioDevolucion();
+
+let grafico3 = document.getElementById("grafico3");
+new Chart(grafico3, {
+    type: "line",
+    data: {
+        labels: ["Tiempo medio de devolución"],
+        datasets:[{
+            label: "Días",
+            data: [12],
+            backgroundColor: "rgba(0, 255, 0, 0.5)"
+        }]
+    }
 });
