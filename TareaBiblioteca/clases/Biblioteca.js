@@ -1,4 +1,4 @@
-import { Libro } from "./Libro";
+import { Libro } from "./Libro.js";
 
 export class Biblioteca{
     constructor(libros = [], usuarios = []){
@@ -52,12 +52,20 @@ export class Biblioteca{
     TopUsuariosConRetrasos(){
         return this.usuarios.sort((a, b) =>  b.numRetrasos - a.numRetrasos);
     }
-    TiempoMedioDevolucion(){
+    TiemposDevolucion(){
         let prestamosEnTotal = 0;
         this.libros.forEach(libro => {
             prestamosEnTotal += libro.contPrestamos;
         });
         let tiempos = Libro.tiempoDevolucion.reduce((acumulador, valorActual) => acumulador + valorActual);
-        return tiempos / prestamosEnTotal;
+        let media = Math.floor(tiempos / prestamosEnTotal);
+
+        let arrOrder = Libro.tiempoDevolucion.sort((a, b) => a - b);
+        let mediana = arrOrder[Math.floor(Libro.tiempoDevolucion.length / 2)];
+
+        let maxima = arrOrder[Libro.tiempoDevolucion.length - 1];
+        let minima = arrOrder[0];
+
+        return [mediana, media, maxima, minima];
     }
 }

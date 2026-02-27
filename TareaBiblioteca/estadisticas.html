@@ -4,9 +4,12 @@
         <title>Estadisticas biblioteca</title>
         <link rel="stylesheet" href="styles.css">
         <style>
+            body{
+                margin: 0;
+            }
             #graficos{
-                width: 500px;
-                height: 700px;
+                width: 80vw;
+                height: 500px;
                 display: flex;
                 gap: 25px;
             }
@@ -17,8 +20,8 @@
         <div id="graficos">
             <canvas id="grafico1"></canvas>
             <canvas id="grafico2"></canvas>
-            <canvas id="grafico3"></canvas>
         </div>
+        <canvas id="grafico3"></canvas>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script type="module" src="estadisticas.js"></script>
     </body>

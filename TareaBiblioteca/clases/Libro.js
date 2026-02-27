@@ -17,9 +17,9 @@ export class Libro{
     marcarDevuelto(){
         this.estaPrestado = false;
 
-        let diferenciaMs = (new Date()) - libro.fechaPrestamo;
+        let diferenciaMs = (new Date()) - this.fechaPrestamo;
         const dias = Math.floor( diferenciaMs / (1000 * 60 * 60 * 24));
-        tiempoDevolucion.push(dias);
+        Libro.tiempoDevolucion.push(dias);
 
         this.fechaPrestamo = null; 
     }

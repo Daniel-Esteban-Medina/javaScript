@@ -13,7 +13,7 @@ export class Usuario{
     }
     pedirLibro(lib){
         this.merecePenalizacion();
-        if(this.estaPenalizado == false || this.librosPrestados.legth >= Usuario.maxLibros){
+        if(this.estaPenalizado == false || this.librosPrestados.length >= Usuario.maxLibros){
             lib.marcarPrestado();
             this.librosPrestados.push(lib);
             return "Prestamo concedido.";
