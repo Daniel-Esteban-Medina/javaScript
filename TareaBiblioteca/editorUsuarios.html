@@ -3,6 +3,12 @@
     <head>
         <title>Gestión de usuarios</title>
         <link rel="stylesheet" href="styles.css">
+        <style>
+            .formulario{
+                border: solid 1px black;
+
+            }
+        </style>
     </head>
     <body>
         <h1>USUARIOS REGISTRADOS</h1>
@@ -12,8 +18,18 @@
         <input type="number" id="maxLibros" name="maxLibros"><br>
 
         <table id="tablaUsuarios"></table>
-        <button id="addUser"><img src="img/add.png" width="30" height="30"> Crear usuario</button>
-        <button id="deletUser"><img src="img/eliminar.png" width="30" height="30"> Borrar usuario</button>
+        <div class="formulario">
+            <h3>Añadir usuario</h3>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre">
+            <input type="password" id="pass" name="pass" placeholder="Contraseña">
+            <input type="text" id="rol" name="rol" placeholder="Rol"><br>
+            <button id="addUser"><img src="img/add.png" width="30" height="30"> Crear usuario</button>
+        </div><br>
+        <div class="formulario">
+            <label for="nombreDel">Nombre del usuario a borrar:</label>
+            <input type="text" id="nombreDel" name="nombreDel"><br>
+            <button id="deletUser"><img src="img/eliminar.png" width="30" height="30"> Borrar usuario</button>
+        </div>
         <script type="module" src="editorUsuarios.js"></script>
     </body>
 </html>

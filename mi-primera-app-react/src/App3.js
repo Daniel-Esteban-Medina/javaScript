@@ -2,11 +2,8 @@ import './App.css';
 
 function App() {
   const titulo = <h1 class='titulo'>Mi titulo</h1>
-  return (
-   <div>
-    <button onClick={sum(5,4)}>Pulsar</button>
-    </div>
-  )
+  return <div>{titulo}<h2>{sum(4,5)}</h2></div>
+
 }
 
 function sum(num1, num2){

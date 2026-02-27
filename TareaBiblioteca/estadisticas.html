@@ -7,9 +7,9 @@
             body{
                 margin: 0;
             }
-            #graficos{
-                width: 80vw;
-                height: 500px;
+            .graficos{
+                width: 400px;
+                height: 250px;
                 display: flex;
                 gap: 25px;
             }
@@ -17,11 +17,13 @@
     </head>
     <body>
         <h1>Estadisticas biblioteca</h1>
-        <div id="graficos">
+        <div class="graficos">
             <canvas id="grafico1"></canvas>
             <canvas id="grafico2"></canvas>
         </div>
-        <canvas id="grafico3"></canvas>
+        <div class="graficos">
+            <canvas id="grafico3"></canvas>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script type="module" src="estadisticas.js"></script>
     </body>
