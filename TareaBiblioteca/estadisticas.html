@@ -3,20 +3,10 @@
     <head>
         <title>Estadisticas biblioteca</title>
         <link rel="stylesheet" href="styles.css">
-        <style>
-            body{
-                margin: 0;
-            }
-            .graficos{
-                width: 400px;
-                height: 250px;
-                display: flex;
-                gap: 25px;
-            }
-        </style>
     </head>
     <body>
-        <h1>Estadisticas biblioteca</h1>
+        <header-adm></header-adm>
+        <h1>Estadisticas</h1>
         <div class="graficos">
             <canvas id="grafico1"></canvas>
             <canvas id="grafico2"></canvas>
@@ -24,6 +14,7 @@
         <div class="graficos">
             <canvas id="grafico3"></canvas>
         </div>
+        <script type="module" src="componentes/CabeceraAdmin.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script type="module" src="estadisticas.js"></script>
     </body>

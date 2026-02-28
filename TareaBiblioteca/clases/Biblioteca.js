@@ -30,10 +30,27 @@ export class Biblioteca{
                                     "</tr>";
         }
     }
+    adminPrintAllLibros(){
+        let tablaLibros = document.getElementById("TablaLibros");
+        tablaLibros.innerHTML = "<tr>"+
+                                    "<th>TITULO</th><th>AUTOR</th><th>GENERO</th><th>numPaginas</th><th>estaPrestado</th><th>fechaPrestamo</th><th>contPrestamos</th>"+
+                                "</tr>";
+        for(let i = 0; i < this.libros.length; i++){
+            tablaLibros.innerHTML += "<tr>"+
+                                        "<td>"+this.libros[i].titulo+
+                                        "</td><td>"+this.libros[i].autor+
+                                        "</td><td>"+this.libros[i].genero+
+                                        "</td><td>"+this.libros[i].numPaginas+
+                                        "</td><td>"+this.libros[i].estaPrestado+
+                                        "</td><td>"+this.libros[i].fechaPrestamo+
+                                        "</td><td>"+this.libros[i].contPrestamos+"</td>"+
+                                    "</tr>";
+        }
+    }
     printAllUsuarios(){
         let tablaUsuarios = document.getElementById("tablaUsuarios");
         tablaUsuarios.innerHTML = "<tr>"+
-                                    "<th>NOMBRE</th><th>CONTRASEÑA</th><th>ROL</th><th>NumLibros</th><th>estaPenalizado</th>"+
+                                    "<th>NOMBRE</th><th>CONTRASEÑA</th><th>ROL</th><th>NumLibros</th><th>estaPenalizado</th><th>numRetrasos</th>"+
                                 "</tr>";
         for(let i = 0; i < this.usuarios.length; i++){
             tablaUsuarios.innerHTML += "<tr>"+
@@ -41,7 +58,8 @@ export class Biblioteca{
                                         "</td><td>"+this.usuarios[i].password+
                                         "</td><td>"+this.usuarios[i].rol+
                                         "</td><td>"+this.usuarios[i].librosPrestados.length+
-                                        "</td><td>"+this.usuarios[i].merecePenalizacion()+"</td>"+
+                                        "</td><td>"+this.usuarios[i].merecePenalizacion()+
+                                        "</td><td>"+this.usuarios[i].numRetrasos+"</th>"+
                                     "</tr>";
         }
     }

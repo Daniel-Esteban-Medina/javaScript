@@ -43,4 +43,17 @@ export class Usuario{
         let diferenciaMs = (new Date()) - libro.fechaPrestamo;
         return Math.floor( diferenciaMs / (1000 * 60 * 60 * 24));
     }
+    tusLibros(){
+        let tablaLibros = document.getElementById("TablaLibros");
+        tablaLibros.innerHTML = "<tr>"+
+                                    "<th>TITULO</th><th>AUTOR</th><th>GENERO</th>"+
+                                "</tr>";
+        for(let i = 0; i < this.librosPrestados.length; i++){
+            tablaLibros.innerHTML += "<tr>"+
+                                        "<td>"+this.librosPrestados[i].titulo+
+                                        "</td><td>"+this.librosPrestados[i].autor+
+                                        "</td><td>"+this.librosPrestados[i].genero+"</td>"+
+                                    "</tr>";
+        }
+    }
 }

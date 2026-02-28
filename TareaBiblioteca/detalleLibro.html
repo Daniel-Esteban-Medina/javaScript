@@ -2,29 +2,12 @@
 <html>
     <head>
         <title>Detalle Libro</title>
-        <style>
-            body{
-                margin: 0%;
-            }
-            header{
-                width: 100%;
-                margin: 0%;
-                background-color: rgb(171, 255, 255);
-            }
-            #titulo{
-                align-self: center;
-                font-style: oblique;
-            }
-            p{
-                color: gray;
-            }
-        </style>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <header>
-            <p>titulo</p>
-            <h1 id="titulo"></h1>
-        </header>
+        <header-usr></header-usr>
+        <p>titulo</p>
+        <h1 id="titulo"></h1>
         <p>autor</p>
         <h3 id="autor"></h3>
         <p>genero</p>
@@ -35,5 +18,8 @@
         <h3 id="estadoLibro"></h3>
         <p>fecha prestamo</p>
         <h3 id="fechaPrestamo"></h3>
+        <button id="pedirLibro"><img src="img/libro-abierto.png"> Pedir Libro</button>
+        <script type="module" src="componentes/CabeceraUser.js"></script>
+        <script type="module" src="detalleLibro.js"></script>
     </body>
 </html>

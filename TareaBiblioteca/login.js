@@ -1,3 +1,4 @@
+import {b1} from  "./componentes/datosPrueba.js";
 let boton = document.getElementById("enviar");
 boton.addEventListener("click", function(){
     let nombre = document.getElementById("nombre").value;

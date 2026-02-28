@@ -5,10 +5,34 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <header-adm></header-adm>
         <h1>Libros REGISTRADOS</h1>
         <table id="TablaLibros"></table>
-        <button id="addLibro"><img src="img/add.png" width="30" height="30"> Crear libro</button>
-        <button id="deletLibro"><img src="img/eliminar.png" width="30" height="30"> Borrar libro</button>
+        <div class="formulario">
+            <h3>Añadir libro</h3>
+            <input type="text" id="titulo" name="titulo" placeholder="Titulo">
+            <input type="text" id="autor" name="autor" placeholder="Autor">
+            <input type="number" id="numPaginas" name="numPaginas" placeholder="numPaginas">
+            <input type="text" id="genero" name="genero" placeholder="Genero"><br>
+            <button id="addLibro"><img src="img/add.png"> Crear libro</button>
+        </div><br>
+        <div class="formulario">
+            <label for="TituloDel">Titulo del libro a borrar:</label>
+            <input type="text" id="TituloDel" name="TituloDel"><br>
+        <button id="deletLibro"><img src="img/eliminar.png"> Borrar libro</button>
+        </div><br>
+        <div class="formulario">
+            <label for="TituloEdi">Titulo del libro a editar:</label>
+            <input type="text" id="TituloEdi" name="TituloEdi"><br>
+            <input type="text" id="autor" name="autor" placeholder="Autor">
+            <input type="number" id="numPaginas" name="numPaginas" placeholder="numPaginas">
+            <input type="text" id="genero" name="genero" placeholder="Genero"> 
+            <input type="number" id="contPrestamos" name="contPrestamos" placeholder="contPrestamos">
+            <label>Esta prestado?:</label>
+            <input type="checkbox" id="estaPrestado" name="estaPrestado"><br>
+        <button id="editarLibro"><img src="img/edicion.png"> Editar libro</button>
+        </div>
+        <script type="module" src="componentes/CabeceraAdmin.js"></script>
         <script type="module" src="editorLibros.js"></script>
     </body>
 </html>
