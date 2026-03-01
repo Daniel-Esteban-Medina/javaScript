@@ -1,26 +1,20 @@
-import {b1} from  "./componentes/datosPrueba.js";
+import { b1, almacen } from "./componentes/datosPrueba.js";
+
 let boton = document.getElementById("enviar");
-boton.addEventListener("click", function(){
+
+boton.addEventListener("click", function() {
     let nombre = document.getElementById("nombre").value;
     let pass = document.getElementById("pass").value;
-    if(nombre != "" && pass != "" && localStorage.getItem(nombre) == null){
-        localStorage.setItem(nombre, pass);
-        console.log(obtenerAllStorage());
-    } else {
-        if(localStorage.getItem(nombre) != null){
-            alert("Ese usuario ya existe");
+    let usuarioEncontrado = b1.usuarios.find(usuario => usuario.nombre == nombre && usuario.password == pass);
+
+    if (usuarioEncontrado) {
+        almacen.setUsuarioActual(usuarioEncontrado);
+        if (usuarioEncontrado.rol == "admin") {
+            window.location.href = "ventanasAdmin/estadisticas.html";
         } else {
-            alert("Por favor rellene todos los campos");
+            window.location.href = "ventanasUser/catalogo.html";
         }
+    } else {
+        alert("Usuario o contraseña incorrectos");
     }
 });
-
-function obtenerAllStorage(){
-    let arr = [];
-    for(let i = 0; i < localStorage.length; i++){
-        let clave = localStorage.key(i);
-        let valor = localStorage.getItem(clave);
-        arr[i] = "Clave: "+clave+"Valor: "+valor;
-    }
-    return arr;
-}

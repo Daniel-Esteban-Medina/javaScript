@@ -36,13 +36,15 @@ export class Biblioteca{
                                     "<th>TITULO</th><th>AUTOR</th><th>GENERO</th><th>numPaginas</th><th>estaPrestado</th><th>fechaPrestamo</th><th>contPrestamos</th>"+
                                 "</tr>";
         for(let i = 0; i < this.libros.length; i++){
+            let fecha = new Date(this.libros[i].fechaPrestamo).toLocaleDateString("es-ES");
+            fecha = (fecha == "1/1/1970") ? "no tiene" : fecha;
             tablaLibros.innerHTML += "<tr>"+
                                         "<td>"+this.libros[i].titulo+
                                         "</td><td>"+this.libros[i].autor+
                                         "</td><td>"+this.libros[i].genero+
                                         "</td><td>"+this.libros[i].numPaginas+
                                         "</td><td>"+this.libros[i].estaPrestado+
-                                        "</td><td>"+this.libros[i].fechaPrestamo+
+                                        "</td><td>"+fecha+
                                         "</td><td>"+this.libros[i].contPrestamos+"</td>"+
                                     "</tr>";
         }

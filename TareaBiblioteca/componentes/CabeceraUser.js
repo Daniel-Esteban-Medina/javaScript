@@ -6,7 +6,7 @@ class CabeceraUser extends HTMLElement{
             <nav>
                 <a href='misLibros.html'>Mis prestamos</a>
                 <a href='catalogo.html'>Catalogos</a>
-                <a href='login.html'>Cerrar sesión</a>
+                <a href='../login.html'>Cerrar sesión</a>
             </nav>
         </header>
         `;

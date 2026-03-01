@@ -1,7 +1,9 @@
-import { Usuario } from "./clases/Usuario.js"; 
-import { Libro } from "./clases/Libro.js";
-import { Biblioteca } from "./clases/Biblioteca.js";
-import {b1} from  "./componentes/datosPrueba.js";
+import { Usuario } from "../clases/Usuario.js"; 
+import { Libro } from "../clases/Libro.js";
+import { Biblioteca } from "../clases/Biblioteca.js";
+import {b1, almacen} from  "../componentes/datosPrueba.js";
+
+almacen.cargarStaticsValues();
 
 let top5 = b1.TopLibrosPrestados().slice(0, 5);
 let titulosLibs = top5.map(libro => libro.titulo);

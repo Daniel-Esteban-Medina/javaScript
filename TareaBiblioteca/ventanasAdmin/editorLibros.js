@@ -1,8 +1,5 @@
-import { Biblioteca } from "./clases/Biblioteca.js";
-import { Usuario } from "./clases/Usuario.js"; 
-import { Libro } from "./clases/Libro.js";
-import {b1} from  "./componentes/datosPrueba.js";
-
+import { b1, almacen } from "../componentes/datosPrueba.js";
+import { Libro } from "../clases/Libro.js";
 
 let addLibro = document.getElementById("addLibro");
 let deletLibro = document.getElementById("deletLibro");
@@ -14,10 +11,15 @@ addLibro.addEventListener("click", function(){
     let genero = document.getElementById("genero").value;
     let newLibro = new Libro(titulo, autor, numPaginas, genero);
     b1.agregarLibro(newLibro);
+    almacen.setLibros(b1.libros);
     b1.adminPrintAllLibros();
 });
-deletLibro.addEventListener("click", function(){
 
+deletLibro.addEventListener("click", function(){
+    let tituloDel = document.getElementById("TituloDel").value;
+    b1.libros = b1.libros.filter(l => l.titulo != tituloDel);
+    almacen.setLibros(b1.libros);
+    b1.adminPrintAllLibros();
 });
 
 b1.adminPrintAllLibros();

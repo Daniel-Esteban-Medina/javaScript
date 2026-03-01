@@ -7,7 +7,7 @@ class CabeceraAdmin extends HTMLElement{
                 <a href='estadisticas.html'>Estadisticas</a>
                 <a href='editorUsuarios.html'>Editor Usuarios</a>
                 <a href='editorLibros.html'>Editor Libros</a>
-                <a href='login.html'>Cerrar sesión</a>
+                <a href='../login.html'>Cerrar sesión</a>
             </nav>
         </header>
         `;
