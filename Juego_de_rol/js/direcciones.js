@@ -1,60 +1,115 @@
-let aventurero = {
-    xp: 0,
-    salud: 100,
-    dinero: 50,
-    atk: 5
-};
-let dragon = 100;
+const botInicio = document.getElementById("botInicio");
+if(botInicio != null){
+    botInicio.addEventListener("click", function(){
+        window.location.href = "./inicio.html";
+        setMons("");
+    });
+}
 
-setAven(aventurero);
-
+//TIENDA
 const botTienda = document.getElementById("botTienda");
 if(botTienda != null){
     botTienda.addEventListener("click", function(){
         window.location.href = "./tienda.html";
     });
 }
-
-const botInicio = document.getElementById("botInicio");
-if(botInicio != null){
-    botInicio.addEventListener("click", function(){
-        window.location.href = "./inicio.html";
+const botComprarSalud = document.getElementById("botComprarSalud");
+if(botComprarSalud != null){
+    botComprarSalud.addEventListener("click", function(){
+        let aven = getAven();
+        if(aven.dinero >= 10){
+            aven.salud += 10;
+            aven.dinero -= 10;
+            setAven(aven);
+            rellenarDatosHTMLAven();
+        } else {
+            alert("No tines dinero suficiente");
+        }
+    });
+}
+const botComprarArmas = document.getElementById("botComprarArmas");
+if(botComprarArmas != null){
+    botComprarArmas.addEventListener("click", function(){
+        let aven = getAven();
+        if(aven.dinero >= 30){
+            aven.atk += 30;
+            aven.dinero -= 30;
+            setAven(aven);
+            rellenarDatosHTMLAven();
+        } else {
+            alert("No tines dinero suficiente");
+        }
     });
 }
 
+// ENTRENAR
 const botEntrenar = document.getElementById("botEntrenar");
 if(botEntrenar != null){
     botEntrenar.addEventListener("click", function(){
         window.location.href = "./entrenar.html";
     });
 }
-
-const botDragon = document.getElementById("botDragon");
-if(botDragon != null){
-botDragon.addEventListener("click", function(){
-    window.location.href = "./dragon.html";
-});
+const botSlime = document.getElementById("botSlime");
+if(botSlime != null){
+    botSlime.addEventListener("click", function(){
+        window.location.href = "./monstruos.html";
+        setMons(slime);
+    });
 }
-const botAtkDragon = document.getElementById("botAtkDragon");
-if(botAtkDragon != null){
-    botAtkDragon.addEventListener("click", function(){
-        let aven = getAven();
-        aven.salud -= 50;
-        setAven(aven);
-        dragon -= aven.atk;
+const botGolem = document.getElementById("botSlime");
+if(botGolem != null){
+    botGolem.addEventListener("click", function(){
+        window.location.href = "./monstruos.html";
+        setMons(golem);
     });
 }
 
+// MONSTRUOS
+let dragon = [100, 70];
+let slime = [15, 10];
+let golem = [60, 40];
+const botDragon = document.getElementById("botDragon");
+if(botDragon != null){
+    botDragon.addEventListener("click", function(){
+        window.location.href = "./monstruos.html";
+    });
+}
+const botAtkMonstruo = document.getElementById("botAtkMonstruos");
+if(botAtkMonstruo != null){
+    botAtkMonstruo.addEventListener("click", function(){
+        let aven = getAven();
+        let mons = getMons();
+        aven.salud -= mons[1];
+        setAven(aven);
+        mons[0] -= aven.atk;
+    });
+}
+
+
+function getMons(){
+    let mons = JSON.parse(localStorage.getItem("monstruo")) || "";
+    return mons;
+}
+function setMons(mostruo){
+    localStorage.setItem("monstruo", JSON.stringify(mostruo));
+}
+// AVENTURERO
+let aventurero = {
+    xp: 0,
+    salud: 100,
+    dinero: 50,
+    atk: 5
+};
+setAven(getAven());
 function getAven(){
-    let aven = JSON.parse(localStorage.getItem("objAventur"));
+    let aven = JSON.parse(localStorage.getItem("objAventur")) || aventurero;
     return aven;
 }
-
-function setAven(aventurero){
-    localStorage.setItem("objAventur", JSON.stringify(aventurero));
+function setAven(aveGua){
+    localStorage.setItem("objAventur", JSON.stringify(aveGua));
 }
-
-function rellenarDatosAven(){
+function rellenarDatosHTMLAven(){
+    // ave
     const xp = document.getElementById("xp");
     const salud = document.getElementById("salud");
     const dinero = document.getElementById("dinero");
@@ -62,4 +117,31 @@ function rellenarDatosAven(){
     xp.textContent = "XP: "+aven.xp;
     salud.textContent = "Salud: "+aven.salud;
     dinero.textContent = "Dinero: "+aven.dinero;
+    // mon
+    let etiquetaMons = "";
+    let cuadroTexto = document.getElementById("cuadroTexto");
+    switch(getMons()){
+        case "":
+
+        break;
+        case "slime":
+            etiquetaMons = `
+                <div id='monster'>Monster Name: slime Health: ${slime[0]}<div>
+            `;
+            cuadroTexto.innerHTML = etiquetaMons+"<div>Estás peleando contra un monstruo</div>";
+        break;
+        case "golem":
+            etiquetaMons = `
+                <div id='monster'>Monster Name: slime Health: ${golem[0]}<div>
+            `;
+            cuadroTexto.innerHTML = etiquetaMons+"<div>Estás peleando contra un monstruo</div>";
+        break;
+        case "dragon":
+            etiquetaMons = `
+                <div id='monster'>Monster Name: slime Health: ${dragon[0]}<div>
+            `;
+            cuadroTexto.innerHTML = etiquetaMons+"<div>Estás peleando contra un monstruo</div>";
+        break;
+    }
 }
+rellenarDatosHTMLAven();
