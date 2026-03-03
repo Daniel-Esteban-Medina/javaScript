@@ -56,7 +56,7 @@ if(botSlime != null){
         setMons(slime);
     });
 }
-const botGolem = document.getElementById("botSlime");
+const botGolem = document.getElementById("botGolem");
 if(botGolem != null){
     botGolem.addEventListener("click", function(){
         window.location.href = "./monstruos.html";
@@ -65,13 +65,14 @@ if(botGolem != null){
 }
 
 // MONSTRUOS
-let dragon = [100, 70];
-let slime = [15, 10];
-let golem = [60, 40];
+let dragon = ["dragon",100, 70];
+let slime = ["slime",15, 10];
+let golem = ["golem",60, 40];
 const botDragon = document.getElementById("botDragon");
 if(botDragon != null){
     botDragon.addEventListener("click", function(){
         window.location.href = "./monstruos.html";
+        setMons(dragon);
     });
 }
 const botAtkMonstruo = document.getElementById("botAtkMonstruos");
@@ -79,9 +80,9 @@ if(botAtkMonstruo != null){
     botAtkMonstruo.addEventListener("click", function(){
         let aven = getAven();
         let mons = getMons();
-        aven.salud -= mons[1];
+        aven.salud -= mons[2];
         setAven(aven);
-        mons[0] -= aven.atk;
+        mons[1] -= aven.atk;
     });
 }
 
@@ -119,28 +120,29 @@ function rellenarDatosHTMLAven(){
     dinero.textContent = "Dinero: "+aven.dinero;
     // mon
     let etiquetaMons = "";
-    let cuadroTexto = document.getElementById("cuadroTexto");
-    switch(getMons()){
+    let cuadroTexto = document.getElementById("etiquetaMons");
+    let mons = getMons();
+    switch(mons[0]){
         case "":
 
         break;
         case "slime":
             etiquetaMons = `
-                <div id='monster'>Monster Name: slime Health: ${slime[0]}<div>
+                Monster Name: slime Health: ${slime[1]}
             `;
-            cuadroTexto.innerHTML = etiquetaMons+"<div>Estás peleando contra un monstruo</div>";
+            cuadroTexto.textContent = etiquetaMons;
         break;
         case "golem":
             etiquetaMons = `
-                <div id='monster'>Monster Name: slime Health: ${golem[0]}<div>
+                Monster Name: golem Health: ${golem[1]}
             `;
-            cuadroTexto.innerHTML = etiquetaMons+"<div>Estás peleando contra un monstruo</div>";
+            cuadroTexto.textContent = etiquetaMons;
         break;
         case "dragon":
             etiquetaMons = `
-                <div id='monster'>Monster Name: slime Health: ${dragon[0]}<div>
+                Monster Name: dragón Health: ${dragon[1]}
             `;
-            cuadroTexto.innerHTML = etiquetaMons+"<div>Estás peleando contra un monstruo</div>";
+            cuadroTexto.textContent = etiquetaMons;
         break;
     }
 }
